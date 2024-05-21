@@ -1,10 +1,13 @@
 class RecipeBook:
     def __init__(self):
         self.recipes = []
+        self.recipes_favorite = []
         self.load_recipes()
 
     def load_recipes(self):
         self.recipes = self.load_from_txt('database.txt')
+        self.recipes_favorite = self.load_from_txt('database_favorite.txt')
+
     
     def load_from_txt(self, filename):
         recipes = []
@@ -41,3 +44,12 @@ class RecipeBook:
         }
         self.recipes.append(recipe)
         self.save_to_txt('database.txt', self.recipes)
+    
+    def add_to_favorites(self, recipe_name):
+        for recipe in self.recipes:
+            if recipe['name'] == recipe_name:
+                self.recipes_favorite.append(recipe)
+                self.save_to_txt('database_favorite.txt', self.recipes_favorite)
+                print(f"Recipe '{recipe_name}' added to favorites.")
+                return
+        print("Recipe not found.")
