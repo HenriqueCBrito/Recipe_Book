@@ -25,9 +25,9 @@ class RecipeBook:
             pass
         return recipes
     
-    def save_to_txt(self):
-        with open('database.txt', 'w') as f:
-            for recipe in self.recipes:
+    def save_to_txt(self, filename, recipes):
+        with open(filename, 'w', encoding='utf-8') as f:
+            for recipe in recipes:
                 f.write(f"{recipe['name']}/{recipe['country']}/{recipe['serves']}/{recipe['time']}/{recipe['ingredients']}/{recipe['description']}/\n")
     
     def add_recipe(self, name, country, serves, time, ingredients, description):
