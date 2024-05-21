@@ -40,4 +40,4 @@ class RecipeBook:
             'description': description,
         }
         self.recipes.append(recipe)
-        self.save_to_txt()
+        self.save_to_txt('database.txt', self.recipes)
