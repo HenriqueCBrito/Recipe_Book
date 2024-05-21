@@ -114,3 +114,35 @@ def main():
                         break
                     else:
                         print('Invalid input. Choose an integer between 1 and 2.')
+                        
+            elif choice == 4:
+                print("\n======= Modify Option =======")
+                recipe_name = input("Enter recipe name to modify: ")
+                new_name = input("Enter new recipe name (leave blank to keep unchanged): ")
+                new_country = input("Enter new country (leave blank to keep unchanged): ")
+
+                while True:
+                    new_serves = input("Enter new number of serves (leave blank to keep unchanged): ")
+                    if new_serves == "":
+                        new_serves = None
+                        break
+                    try:
+                        new_serves = int(new_serves)
+                        break
+                    except ValueError:
+                        print('Invalid input. Please enter an integer.')
+
+                while True:
+                    new_time = input("Enter new time to prepare (in minutes) (leave blank to keep unchanged): ")
+                    if new_time == "":
+                        new_time = None
+                        break
+                    try:
+                        new_time = int(new_time)
+                        break
+                    except ValueError:
+                        print('Invalid input. Please enter an integer.')
+
+                new_ingredients = input("Enter new recipe ingredients (leave blank to keep unchanged): ")
+                new_description = input("Enter new recipe description (leave blank to keep unchanged): ")
+                recipe_book.modify_recipe(recipe_name, new_name, new_country, new_serves, new_time, new_ingredients, new_description)
