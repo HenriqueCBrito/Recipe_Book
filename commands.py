@@ -144,4 +144,26 @@ Description: {recipe['description']}
 
 ***********************************************""")
         if not found:
-            print("No recipes found within the given time.")        
+            print("No recipes found within the given time.")
+    def show_by_ingredient(self, ingredient):
+        print(f"Recipes containing {ingredient} as a ingredient:")
+        found = False
+        for recipe in self.recipes:
+            if ingredient in recipe['ingredients']:
+                found = True
+                print(f"""
+Name: {recipe['name']}
+                      
+Country: {recipe['country']}
+
+Serves: {recipe['serves']}
+
+Time (mins): {recipe['time']}
+
+Ingredients: {recipe['ingredients']}
+
+Description: {recipe['description']}
+
+***********************************************""")
+        if not found:
+            print("No recipes found with the given ingredient.")        
