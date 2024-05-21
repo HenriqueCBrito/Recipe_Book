@@ -5,7 +5,7 @@ def main():
     show_options = ['Add Recipe', 'Show Recipes', 'Delete Recipe', 'Modify Recipe', 'Get Random Recipe']
 
     while True:
-        
+        try:
             print("\n======= Recipe Book Menu =======")
             for idx, option in enumerate(show_options, start=1):
                 print(f"{idx}. {option}")
@@ -16,6 +16,7 @@ def main():
             except ValueError:
                 print('Invalid choice. Choose a number between 0 and 5.')
                 continue
+            
             if choice == 1:
                 while True:
                     print("\n======= Add Options =======")
@@ -146,3 +147,19 @@ def main():
                 new_ingredients = input("Enter new recipe ingredients (leave blank to keep unchanged): ")
                 new_description = input("Enter new recipe description (leave blank to keep unchanged): ")
                 recipe_book.modify_recipe(recipe_name, new_name, new_country, new_serves, new_time, new_ingredients, new_description)
+            
+            elif choice == 5:
+                recipe_book.random_suggestion()
+
+            elif choice == 0:
+                print("Thank you! See you next time!")
+                break
+
+            else:
+                print("Invalid input. Please enter an integer between 0 and 5.")
+        except KeyboardInterrupt:
+            print("\nThank you! See you next time!")
+            break
+
+if __name__ == "__main__":
+    main()
