@@ -179,3 +179,9 @@ Description: {recipe['description']}
         self.save_to_txt('database.txt', self.recipes)
         self.save_to_txt('database_favorite.txt', self.recipes_favorite)
         print(f"Recipe '{recipe_name}' deleted.")
+    def delete_all_from_country(self, country):
+        self.recipes = [r for r in self.recipes if r['country'].lower() != country.lower()]
+        self.recipes_favorite = [r for r in self.recipes_favorite if r['country'].lower() != country.lower()]
+        self.save_to_txt('database.txt', self.recipes)
+        self.save_to_txt('database_favorite.txt', self.recipes_favorite)
+        print(f"All recipes from '{country}' deleted.")
