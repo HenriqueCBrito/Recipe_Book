@@ -123,3 +123,25 @@ Description: {recipe['description']}
 ***********************************************""")
         if not found:
             print("No recipes found for the given number of serves.")
+    def show_by_time(self, time):
+        print(f"Recipes taking {time} minutes or less to prepare:")
+        found = False
+        for recipe in self.recipes:
+            if recipe['time'] <= time:
+                found = True
+                print(f"""
+Name: {recipe['name']}
+                      
+Country: {recipe['country']}
+
+Serves: {recipe['serves']}
+
+Time (mins): {recipe['time']}
+
+Ingredients: {recipe['ingredients']}
+
+Description: {recipe['description']}
+
+***********************************************""")
+        if not found:
+            print("No recipes found within the given time.")        
