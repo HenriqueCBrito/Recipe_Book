@@ -25,3 +25,7 @@ class RecipeBook:
             pass
         return recipes
     
+    def save_to_txt(self):
+        with open('database.txt', 'w') as f:
+            for recipe in self.recipes:
+                f.write(f"{recipe['name']}/{recipe['country']}/{recipe['serves']}/{recipe['time']}/{recipe['ingredients']}/{recipe['description']}/\n")
