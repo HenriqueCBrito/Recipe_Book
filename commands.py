@@ -166,4 +166,10 @@ Description: {recipe['description']}
 
 ***********************************************""")
         if not found:
-            print("No recipes found with the given ingredient.")        
+            print("No recipes found with the given ingredient.")   
+    def show_favorite_recipes(self):
+        if self.recipes_favorite:
+            print("Favorite Recipes:")
+            self.print_recipes(self.recipes_favorite)
+        else:
+            print("No favorite recipes found.")     
