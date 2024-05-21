@@ -91,3 +91,26 @@ def main():
                         break
                     else:
                         print('Invalid input. Choose an integer between 1 and 6.')
+                        
+            elif choice == 3:
+                while True:
+                    print("\n======= Delete Options =======")
+                    print("1. Delete Recipe")
+                    print("2. Delete All Recipes from a Country")
+
+                    try:
+                        sub_choice = int(input("Enter your choice: "))
+                    except ValueError:
+                        print('Invalid input. Please enter an integer.')
+                        continue
+
+                    if sub_choice == 1:
+                        recipe_name = input("Enter recipe name to delete: ")
+                        recipe_book.delete_recipe(recipe_name)
+                        break
+                    elif sub_choice == 2:
+                        country = input("Enter country to delete all recipes from: ")
+                        recipe_book.delete_all_from_country(country)
+                        break
+                    else:
+                        print('Invalid input. Choose an integer between 1 and 2.')
