@@ -29,3 +29,15 @@ class RecipeBook:
         with open('database.txt', 'w') as f:
             for recipe in self.recipes:
                 f.write(f"{recipe['name']}/{recipe['country']}/{recipe['serves']}/{recipe['time']}/{recipe['ingredients']}/{recipe['description']}/\n")
+    
+    def add_recipe(self, name, country, serves, time, ingredients, description):
+        recipe = {
+            'name': name,
+            'country': country,
+            'serves': serves,
+            'time': time,
+            'ingredients': ingredients,
+            'description': description,
+        }
+        self.recipes.append(recipe)
+        self.save_to_txt()
