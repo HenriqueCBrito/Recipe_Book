@@ -53,3 +53,20 @@ class RecipeBook:
                 print(f"Recipe '{recipe_name}' added to favorites.")
                 return
         print("Recipe not found.")
+    
+    def print_recipes(self, recipes):
+        for recipe in recipes:
+            print(f"""
+Name: {recipe['name']}
+
+Country: {recipe['country']}
+
+Serves: {recipe['serves']}
+
+Time (mins): {recipe['time']}
+
+Ingredients: {recipe['ingredients']}
+
+Description: {recipe['description']}
+
+***********************************************""")
