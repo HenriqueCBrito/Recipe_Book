@@ -52,3 +52,42 @@ def main():
                         break
                     else:
                         print('Invalid input. Choose an integer between 1 and 2.')
+                        
+            elif choice == 2:
+                while True:
+                    print("\n======= Show Options =======")
+                    print("1. Show All Recipes")
+                    print("2. Show Recipes by Country")
+                    print("3. Show Recipes by Number of Serves")
+                    print("4. Show Recipes by Time")
+                    print("5. Show Recipes by Ingredient")
+                    print("6. Show Favorite Recipes")
+                    try:
+                        sub_choice = int(input("Enter your choice: "))
+                    except ValueError:
+                        print('Invalid input. Please enter an integer.')
+                        continue
+                    if sub_choice == 1:
+                        recipe_book.show_all_recipes()
+                        break
+                    elif sub_choice == 2:
+                        country = input("Enter country: ")
+                        recipe_book.show_by_country(country)
+                        break
+                    elif sub_choice == 3:
+                        serves = int(input("Enter number of serves: "))
+                        recipe_book.show_by_serves(serves)
+                        break
+                    elif sub_choice == 4:
+                        time = int(input("Enter maximum time (in minutes): "))
+                        recipe_book.show_by_time(time)
+                        break
+                    elif sub_choice == 5:
+                        ingredient = input("Enter ingredient: ")
+                        recipe_book.show_by_ingredient(ingredient)
+                        break
+                    elif sub_choice == 6:
+                        recipe_book.show_favorite_recipes()
+                        break
+                    else:
+                        print('Invalid input. Choose an integer between 1 and 6.')
