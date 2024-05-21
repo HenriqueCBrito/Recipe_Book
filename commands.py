@@ -173,3 +173,9 @@ Description: {recipe['description']}
             self.print_recipes(self.recipes_favorite)
         else:
             print("No favorite recipes found.")     
+    def delete_recipe(self, recipe_name):
+        self.recipes = [r for r in self.recipes if r['name'] != recipe_name]
+        self.recipes_favorite = [r for r in self.recipes_favorite if r['name'] != recipe_name]
+        self.save_to_txt('database.txt', self.recipes)
+        self.save_to_txt('database_favorite.txt', self.recipes_favorite)
+        print(f"Recipe '{recipe_name}' deleted.")
