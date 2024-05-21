@@ -70,13 +70,14 @@ Ingredients: {recipe['ingredients']}
 Description: {recipe['description']}
 
 ***********************************************""")
+            
     def show_all_recipes(self):
         if self.recipes:
             print("\nAll Recipes:")
             self.print_recipes(self.recipes)
         else:
             print("No recipes found.")
-    
+
     def show_by_country(self, country):
         print(f"Recipes from {country}:")
         found = False
@@ -99,7 +100,7 @@ Description: {recipe['description']}
 ***********************************************""")
         if not found:
             print("No recipes found for the given country.")
-    
+
     def show_by_serves(self, serves):
         print(f"Recipes serving {serves} people:")
         found = False
